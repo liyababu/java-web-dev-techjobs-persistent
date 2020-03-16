@@ -16,13 +16,14 @@ import java.util.Optional;
 public class SkillController {
 
     @Autowired
-    private SkillRepository skillRepository;
+    SkillRepository skillRepository;
 
-    @RequestMapping("")
-    public String index(Model model){
+    @GetMapping
+    public String displayAllSkills(Model model) {
         model.addAttribute("skills", skillRepository.findAll());
         return "skills/index";
     }
+
 
     @GetMapping("add")
     public String displayAddSkillForm(Model model) {
